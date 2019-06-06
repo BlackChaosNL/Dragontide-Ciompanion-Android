@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="activity"
+            type="com.example.tyil.dtc.Activities.CampaignInfoActivity" />
+        <variable
+            name="campaign"
+            type="com.example.tyil.dtc.Data.CampaignData" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/campaignName"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="@={campaign.name}"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/campaignDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={campaign.description}" />
+
+        <Button
+            android:id="@+id/sendSms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> activity.handleSendSms(campaign)}"
+            android:text="@string/action_invite_sms" />
+
+        <TextView
+            android:id="@+id/qrCodeHelp"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="@string/qrcode_invite_help" />
+
+        <ImageView
+            android:id="@+id/qrCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</layout>

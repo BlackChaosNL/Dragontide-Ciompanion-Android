@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+    <data>
+        <variable
+            name="user"
+            type="com.example.tyil.dtc.Data.LoginData" />
+        <variable
+            name="activity"
+            type="com.example.tyil.dtc.Activities.LoginActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/app_email"
+            android:inputType="textEmailAddress"
+            android:text="@={user.email}" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/app_password"
+            android:inputType="textPassword"
+            android:text="@={user.password}" />
+
+        <LinearLayout
+            style="?attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom">
+
+            <Button
+                android:id="@+id/button"
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> activity.handleLogin(user)}"
+                android:text="@string/action_sign_in_short" />
+
+            <Button
+                style="?attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> activity.navigateToRegister()}"
+                android:text="@string/action_register" />
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>
